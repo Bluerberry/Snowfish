@@ -1,0 +1,542 @@
+/*------------------------------- Generic setup -------------------------------*/
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #f7f9f9;
+	cursor: default;
+}
+.column {
+	float: left;
+	width: 50%;
+}
+span i {
+	color: #a0a29f;
+}
+
+/*------------------------------ Navigation bar ------------------------------*/
+
+nav {
+	width: 100%;
+	overflow: hidden;
+	background-color: #333333;
+}
+nav a {
+	padding: 16px 16px;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	color: #f7f9f9;
+	font-size: 17px;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
+}
+nav a:first-child {
+	padding: 10px 12px;
+}
+nav a.carticon, a.navicon {
+	float: right;
+	font-size: 18px;
+}
+nav a.navicon, nav a.carttxt {
+	display: none;
+}
+nav a:hover {
+	opacity: 0.4;
+}
+@media screen and (max-width: 800px) {
+	nav a:not(:first-child){display: none;}
+	nav a.navicon {
+		display: block;
+		position: absolute;
+		right: 0;
+	  	top: 0;
+	}
+	nav.unfolded a:not(.carticon) {
+	 	float: none;
+	  	display: block;
+	  	text-align: left;
+	}
+}
+
+/*------------------------------ Heading w/ text ------------------------------*/
+
+div.head-txt {
+	max-width: 60%;
+	min-width: 350px;
+	margin: 40px auto 40px auto;
+}
+div.head-txt h1 {
+	font-size: 45px;
+	text-align: center;
+	color: #3a506b;
+	margin: 0;
+}
+div.head-txt p {
+	font-size: 18px;
+	text-align: justify;
+	text-align-last: center;
+	color: #a0a29f;
+	margin: 10px 0 0 0;
+}
+
+/*--------------------------- Hover card (gallery) ---------------------------*/
+
+div.cardgallery {
+	max-width: 80%;
+	margin: 0 auto 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+div.cardgallery .hovercard {
+	min-width: 350px;
+	max-width: 700px;
+	flex-grow: 1;
+	margin: 10px;
+}
+.hovercard {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	cursor: pointer;
+	-o-transition: .3s;
+	-ms-transition: .3s;
+	-moz-transition: .3s;
+	-webkit-transition: .3s;
+	transition:.3s;
+}
+.hovercard img {
+	height: 100%;
+	width: 100%;
+}
+.hovercard:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+/*--------------------------------- Tab menu ---------------------------------*/
+
+div.tabmenu {
+	max-width: 80%;
+	margin: 0 auto 0 auto;
+}
+button.tablink {
+	float: left;
+	width: 25%;
+	padding: 14px 16px;
+	border: none;
+	outline: none;
+	background-color: #3a506b;
+	color: #f7f9f9;
+	font-size: 20px;
+	cursor: pointer;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition:.2s;
+}
+button.tablink b {
+	padding-right: 15px;
+}
+button.tablink:hover {
+	background-color: #afc2d5;
+}
+div.tabcontent {
+	display: none;
+	padding: 60px 30px;
+	margin-bottom: 100px;
+	background-color: #f0f2ef;
+	color: #333333;
+}
+div.tabcontent p {
+	margin-top: 0;
+}
+div.tabcontent h3 {
+	margin: 50px 0 0 0;
+}
+
+/*--------------------------------- Checkbox ---------------------------------*/
+
+span.checkbox {
+	display: block;
+	position: relative;
+	margin-bottom: 10px;
+	padding: 5px 0 0 35px;
+	font-size: 17px;
+	cursor: pointer;
+}
+span.checkbox input {
+	-o-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: white;
+	cursor: pointer;
+}
+span.checkbox input:after {
+	content: "";
+	position: absolute;
+	display: none;
+	top: 5px;
+	left: 9px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-o-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+span.checkbox input:hover {
+	background-color: #afc2d5;
+}
+span.checkbox input:checked {
+	background-color: #3a506b;
+}
+span.checkbox input:checked:after {
+	display: block;
+}
+
+/*--------------------------------- Radiobox ---------------------------------*/
+
+span.radiobox {
+	display: block;
+	position: relative;
+	margin-bottom: 10px;
+	padding: 5px 0 0 35px;
+	font-size: 17px;
+	cursor: pointer;
+}
+span.radiobox input {
+	-o-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	border-radius: 50%;
+	background-color: white;
+	cursor: pointer;
+}
+span.radiobox input:after {
+	content: "";
+	position: absolute;
+	display: none;
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+span.radiobox input:checked:after {
+	display: block;
+}
+span.radiobox input:checked {
+	background-color: #3a506b;
+}
+span.radiobox input:hover {
+	background-color: #afc2d5;
+}
+
+/*---------------------------------- Slider ----------------------------------*/
+
+input.slider {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 15px;
+	margin: 8px 0 0 0;
+	border-radius: 5px;
+	outline: none;
+	opacity: 0.8;
+	background: white;
+}
+input.slider::-webkit-slider-thumb, input.slider::-moz-range-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #3a506b;
+	cursor: pointer;
+}
+input.slider:hover {
+	opacity: 1;
+}
+input.sliderInput {
+	width: 50px;
+	height: 30px;
+	padding-left: 5px;
+	border: 0;
+}
+span.inputprefix {
+	padding: 10px 0 8px 5px;
+	background: white;
+	font-size: 12px;
+}
+
+/*---------------------------------- Textbox ----------------------------------*/
+
+input.textbox {
+	width: 100%;
+	height: 35px;
+	padding-left: 5px;
+	margin-top: 10px;
+	border: 0;
+}
+
+input.largetextbox {
+	width: 100%;
+	height: 350px;
+	padding-left: 5px;
+	margin-top: 10px;
+	border: 0;
+}
+
+/*--------------------------- Fade card (carrousel) ---------------------------*/
+
+div.carrousel {
+	text-align: center;
+}
+div.fadecard {
+	display: inline-block;
+	width: 250px;
+	margin: 10px;
+  	background: white;
+  	text-align: justify;
+	text-align-last: center;
+}
+div.fadecard img {
+  	position: relative;
+  	width: 250px;
+  	cursor: pointer;
+  	-o-transition: .2s;
+  	-ms-transition: .2s;
+  	-moz-transition: .2s;
+  	-webkit-transition: .2s;
+  	transition: .2s;
+}
+div.fadecard div {
+  	width: 190px;
+  	margin: 5px auto;
+	border-bottom: 1px solid #a0a29f;
+}
+div.fadecard h2 {
+  	text-align: center;
+  	margin: 0;
+}
+div.fadecard p {
+  	margin-bottom: 30px;
+  	padding:  0 20px;
+  	font-size: 15px;
+}
+div.fadecard a {
+	display: block;
+	width: 100%;
+	margin: 0;
+  	padding: 10px 0;
+  	background: #3a506b;
+  	color: #f7f9f9;
+  	text-decoration: none;
+  	cursor: pointer;
+  	-o-transition: .2s;
+  	-ms-transition: .2s;
+  	-moz-transition: .2s;
+  	-webkit-transition: .2s;
+  	transition: .2s;
+}
+div.fadecard a:hover {
+	background: #afc2d5;
+}
+div.fadecard img:hover {
+  	opacity: 0.7;
+}
+
+/*---------------------------------- TEMP CARROUSEL ----------------------------------*/
+
+.wrapper {
+	width: 95%;
+	height: 200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+}
+.moredivs {
+	display: inline-block;
+  	height: 200px;
+  	width: 90%;
+	position: relative;
+  	overflow: hidden;
+  	margin: 0 auto;
+}
+
+div.wrapper ul {
+  	margin: 0;
+  	padding: 0;
+  	display: flex;
+  	position: absolute;
+	transition: all 1s ease;
+}
+
+.card {
+  	background: black;
+  	min-width: 200px;
+  	height: 200px;
+  	margin-right: 10px;
+  	display: inline-block;
+}
+.next, .prev {
+	font-weight: bold;
+	font-size: 30px;
+	-o-transition:.2s;
+	-ms-transition:.2s;
+	-moz-transition:.2s;
+	-webkit-transition:.2s;
+	transition:.2s;
+	cursor: pointer;
+	color: #a0a29f;
+}
+.next {
+	right: 0;
+}
+
+/*---------------------------------- Modal ----------------------------------*/
+
+div.modal {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	padding-top: 100px;
+	background-color: rgba(0,0,0,0.8);
+	overflow: hidden;
+}
+div.modal div.slideshow {
+	position: relative;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	margin: auto;
+	text-align: left;
+	color: #f7f9f9;
+	-webkit-animation-name: zoom;
+	animation-name: zoom;
+	-webkit-animation-duration: .4s;
+	animation-duration: .4s;
+}
+div.modal p {
+	margin: auto;
+	padding-top: 10px;
+	text-align: center;
+	color: #f7f9f9;
+	-webkit-animation-name: zoom;
+	animation-name: zoom;
+	-webkit-animation-duration: .4s;
+	animation-duration: .4s;
+}
+div.modal span {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	padding: 10px;
+	color: #f7f9f9;
+	font-size: 40px;
+	font-weight: bold;
+	cursor: pointer;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
+}
+div.modal span:hover {
+	color: #afc2d5;
+}
+@keyframes zoom {
+	from {transform:scale(0)}
+	to {transform:scale(1)}
+}
+@-webkit-keyframes zoom {
+	from {transform:scale(0)}
+	to {transform:scale(1)}
+}
+
+/*-------------------------------- Slideshow ------------------------------*/
+
+div.slideshow div.slide img {
+	width:100%
+}
+div.slideshow a.prev, div.slideshow a.next {
+	position: absolute;
+	width: auto;
+	top: 50%;
+	padding: 10px;
+	margin-top: -22px;
+	font-weight: bold;
+	font-size: 30px;
+	-o-transition:.2s;
+	-ms-transition:.2s;
+	-moz-transition:.2s;
+	-webkit-transition:.2s;
+	transition:.2s;
+	cursor: pointer;
+}
+div.slideshow a.next {
+	right: 0;
+}
+div.slideshow span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 8px 12px;
+	font-size: 12px;
+}
+div.slideshow a.prev:hover, div.slideshow a.next:hover {
+	color: #afc2d5;
+}
+
+/*--------------------------------- Errors ---------------------------------*/
+
+#displayerror {
+	display: none;
+}
+#compatibilityerror, #interneterror {
+	display: none;
+	margin-top: 10px;
+	text-align: center;
+	color: #ac3931;
+	font-size: 13px;
+}
+#priceerror {
+	display: none;
+	margin-top: 10px;
+	text-align: center;
+	color: #7b904b;
+	font-size: 13px;
+}
+@media screen and (max-width: 650px) {
+	.dependdisplay {
+		display: none;
+	}
+	#displayerror {
+		display: block;
+	}
+}

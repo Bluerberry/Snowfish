@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Snowfish - Customizer</title>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="resources/css/all.min.css"/> <!-- Link icon list -->
+		<link rel="stylesheet" type="text/css" href="resources/css/stylesheet.css"/> <!-- Link external css -->
+		<link rel="icon" type="image/png" href="resources/images/logo_gray.png"/> <!-- Title icon -->
+		<link rel="apple-touch-icon" type="image/png" href="resources/images/logo_gray.png"/> <!-- Title icon for apple devices -->
+	</head>
+
+	<body>
+		<nav id="topnav">
+			<a href="index.html"><img src="resources/images/logo_white.png" height="27" width="27"></a>
+			<a href="customizer.html">Customizer</a>
+			<a href="portfolio.html">Portfolio</a>
+			<a href="about.html">About</a>
+			<a href="support.html">Support</a>
+			<a href="cart.html" class="carttxt">Shopping cart</a>
+			<a href="cart.html" class="carticon"><i class="fas fa-shopping-cart"></i></a>
+			<a href="javascript:void(0);" class="navicon" onclick="foldingMenu()"><i class="fa fa-bars"></i></a>
+		</nav>
+
+
+		<div class="head-txt dependdisplay">
+			<h1>Computers built for you</h1>
+			<p>
+				In our current day and age, it is common practice for electronics companies to overprice products
+				that are, in the best case, dissapointing. We at Snowfish offer an alternitive. Our team consists
+				of hardware enthousiasts that are happy to build you the best computer you've ever had for a 
+				fraction of our competitor's price. The only thing you have to do is fill in the following form,
+				and we'll do the rest!
+			</p>
+		</div> 
+
+
+		<div class="tabmenu dependdisplay">
+			<button class="tablink" onclick="openTab('Basics', this)" id="defaultOpen"><b>1</b>Basics</button>
+			<button class="tablink" onclick="openTab('Aesthetics', this)"><b>2</b>Aesthetics</button>
+			<button class="tablink" onclick="openTab('Advanced', this)"><b>3</b>Advanced</button>
+			<button class="tablink" onclick="openTab('Finish', this)"><b>4</b>Finish</button>
+			<div id="Basics" class="tabcontent">
+				<h3>How much do you want to spend on hardware?</h3>
+				<p>We will strive to come as close to this amount as possible, but never pass it.</p>
+				<span class="inputprefix">€<input 
+					type="text" 
+					class="sliderInput" 
+					id="inputq1" 
+					value="500" 
+					onchange="updateSlider(this.value, 0, 300, 5000); updateForm();">
+				</span>
+				<input 
+					type="range" 
+					min="300" 
+					max="5000" 
+					class="slider" 
+					id="q1" 
+					value="500" 
+					oninput="updateSlider(this.value, 0, 300, 5000);" 
+					onchange="updateForm();">
+				<h3>What will you use your computer for?</h3>
+				<p>Your computer will be optimized for these applications.</p>
+				<div class="column">
+					<span class="checkbox">Document editing<i> (e.g. Word, Excel or Powerpoint)</i>
+						<input type="checkbox" name="q2" value="350-0-0">
+					</span>
+					<span class="checkbox">Internet<i> (e.g. Websites, eMail or Social media)</i>
+						<input type="checkbox" name="q2" value="300-1-0">
+					</span>
+					<span class="checkbox">Light gaming<i> (e.g. Minecraft or indie games)</i>
+						<input type="checkbox" name="q2" value="400-1-0">
+					</span>
+					<span class="checkbox">Heavy gaming<i> (e.g. GTA or CS:GO)</i>
+						<input type="checkbox" name="q2" value="700-2-0">
+					</span>
+					<span class="checkbox">Music production<i> (e.g. Ableton or Garageband)</i>
+						<input type="checkbox" name="q2" value="600-0-0">
+					</span>
+				</div>
+				<div class="column">
+					<span class="checkbox">Grafic design<i> (e.g. Photoshop or Illustrator)</i>
+						<input type="checkbox" name="q2" value="650-0-0">
+					</span>
+					<span class="checkbox">Video editing<i> (e.g. iMovie or Final Cut)</i>
+						<input type="checkbox" name="q2" value="650-0-0">
+					</span>
+					<span class="checkbox">CAD/3D rendering<i> (e.g. Fusion 360° or Blender)</i>
+						<input type="checkbox" name="q2" value="700-0-0">
+					</span>
+					<span class="checkbox">Home server<i>(e.g. media or data storage)</i>
+						<input type="checkbox" name="q2" value="500-2-1">
+					</span>
+					<span class="checkbox">Server Hosting<i> (e.g. websites, mail or cloud storage)</i>
+						<input type="checkbox" name="q2" value="600-2-1">
+					</span>
+				</div>
+				<input type="text" class="textbox" placeholder="Other applications...">
+				<p id="compatibilityerror">
+					<i class="fas fa-exclamation-triangle"></i>
+					<i> 
+						Unfortunately, servers require specific hardware. Therefore you cannot use them 
+						as regular computers. Please deselect any non-server related applications.
+					</i>
+				</p>
+				<p id="priceerror">
+						<i class="far fa-lightbulb"></i>
+						<i> 
+							It seems you've undercut your budget a bit... We reccomend you choose other daily
+							applications, or increase your budget. Otherwise, we cannot guarantee you will be 
+							able to perfectly run your daily applications.
+						</i>
+					</p>
+				<p id="debug"></p> <!--DEBUG-->
+				<h3>What type of internet connection do you plan on using?</h3>
+				<p>If you are not shure, 'both' is the safest choice.</p>
+				<span class="radiobox">Wired<i> (Ethernet)</i>
+					<input type="radio" name="q3" value="2" checked="checked">
+				</span>
+				<span class="radiobox">Wireless<i> (WiFi)</i>
+					<input type="radio" name="q3" value="1">
+				</span>
+				<span class="radiobox">Both
+					<input type="radio" name="q3" value="2">
+				</span>
+				<span class="radiobox">None
+					<input type="radio" name="q3" value="0">
+				</span>
+				<p id="interneterror">
+					<i class="fas fa-exclamation-triangle"></i>
+					<i> 
+						You have selected internet-dependent applications in the previous question. 
+						Therefore, we strongly recommend for you to use a wired connection.
+					</i>
+				</p>
+				<h3>How much storage do you want?</h3>
+				<p>Keep in mind that fotos, videos and games are big files, and require a lot of storage.</p>
+				<span class="inputprefix">GB<input 
+					type="text" 
+					class="sliderInput" 
+					id="inputq4" 
+					value="1000" 
+					onchange="updateSlider(this.value, 1, 250, 10000); updateForm();">
+				</span>
+				<input 
+					type="range" 
+					min="250" 
+					max="10000" 
+					class="slider" 
+					id="q4" 
+					value="1000" 
+					oninput="updateSlider(this.value, 1, 250, 10000);" 
+					onchange="updateForm();">
+			</div>
+			<div id="Aesthetics" class="tabcontent">
+				<h3>What color scheme do you prefer?</h3>
+				<p>Choose</p>
+
+				<h3>What computer case do you want?</h3>
+				<p>This will decide size, look and cooling options.</p>
+				<div class="carrousel">
+					<div class="fadecard"> 
+						<img src="resources/images/Meshify-S2_flb.png" onclick="openModal('Meshify-S2')">
+						<h2>Meshify S2</h2>
+						<div></div>
+						<p>
+							Intricate patterns adorn the front of Fractal Design's flagship case.
+							This is a masterpiece that makes a statement: the Meshify S2.
+						</p>
+						<a>Choose case</a>
+					</div>
+					<div class="fadecard"> 
+						<img src="resources/images/h510e_flt.png" onclick="openModal('h510e')">
+						<h2>H510 Elite</h2>
+						<div></div>
+						<p>
+							For those who seek a minimalistic, yet fancy case, NZXT offers a
+							solution. The H510 Elite can show of your pc while still
+							maintaining subtilty.
+						</p>
+						<a>Choose case</a>
+					</div>
+					<div class="fadecard"> 
+						<img src="resources/images/h710i_flt.png" onclick="openModal('h710i')">
+						<h2>H710i</h2>
+						<div></div>
+						<p>
+							NZXT offers a beautifully minimalistic deskpiece, capable of housing
+							the most high-end components and water cooling loops.
+						</p>
+						<a>Choose case</a>
+					</div>
+					<div class="fadecard"> 
+						<img src="resources/images/obsidian_flb.png" onclick="openModal('obsidian')">
+						<h2>Obsidian 1000D</h2>
+						<div></div>
+						<p>
+							Corsair has released the gigantic Obsidian 1000D. This case can house
+							the biggest, baddest pc you can make. No comprimises.
+						</p>
+						<a>Choose case</a>
+					</div>
+				</div>
+				<div class="modal" id="Meshify-S2">
+					<span onclick="closeModal('Meshify-S2')">&times;</span>
+					<div class="slideshow">
+						<div class="slide">
+							<span>1 / 4</span>
+							<img src="resources/images/Meshify-S2_flb.png">
+						</div>
+						<div class="slide">
+							<span>2 / 4</span>
+							<img src="resources/images/Meshify-S2_blb.png">
+						</div>
+						<div class="slide">
+							<span>3 / 4</span>
+							<img src="resources/images/Meshify-S2_frt.png">
+						</div>
+						<div class="slide">
+							<span>4 / 4</span>
+							<img src="resources/images/Meshify-S2_lmm.png">
+						</div>
+						<a class="prev" onclick="plusSlides(-1, 'Meshify-S2')">&#10094;</a>
+  						<a class="next" onclick="plusSlides(1, 'Meshify-S2')">&#10095;</a>
+					</div>
+					<p>Fractal Design: Meshify S2</p>
+				</div>
+				<div class="modal" id="h510e">
+					<span onclick="closeModal('h510e')">&times;</span>
+					<div class="slideshow">
+						<div class="slide">
+							<span>1 / 4</span>
+							<img src="resources/images/h510e_flt.png">
+						</div>
+						<div class="slide">
+							<span>2 / 4</span>
+							<img src="resources/images/h510e_frt.png">
+						</div>
+						<div class="slide">
+							<span>3 / 4</span>
+							<img src="resources/images/h510e_lmm.png">
+						</div>
+						<div class="slide">
+							<span>4 / 4</span>
+							<img src="resources/images/h510e_pc.png">
+						</div>
+						<a class="prev" onclick="plusSlides(-1, 'h510e')">&#10094;</a>
+  						<a class="next" onclick="plusSlides(1, 'h510e')">&#10095;</a>
+					</div>
+					<p>NZXT: H510 elite</p>
+				</div>
+				<div class="modal" id="h710i">
+					<span onclick="closeModal('h710i')">&times;</span>
+					<div class="slideshow">
+						<div class="slide">
+							<span>1 / 4</span>
+							<img src="resources/images/h710i_flt.png">
+						</div>
+						<div class="slide">
+							<span>2 / 4</span>
+							<img src="resources/images/h710i_frt.png">
+						</div>
+						<div class="slide">
+							<span>3 / 4</span>
+							<img src="resources/images/h710i_lmm.png">
+						</div>
+						<div class="slide">
+							<span>4 / 4</span>
+							<img src="resources/images/h710i_pc.png">
+						</div>
+						<a class="prev" onclick="plusSlides(-1, 'h710i')">&#10094;</a>
+  						<a class="next" onclick="plusSlides(1, 'h710i')">&#10095;</a>
+					</div>
+					<p>NZXT: H710i</p>
+				</div>
+				<div class="modal" id="obsidian">
+					<span onclick="closeModal('obsidian')">&times;</span>
+					<div class="slideshow">
+						<div class="slide">
+							<span>1 / 4</span>
+							<img src="resources/images/obsidian_flb.png">
+						</div>
+						<div class="slide">
+							<span>2 / 4</span>
+							<img src="resources/images/obsidian_flt.png">
+						</div>
+						<div class="slide">
+							<span>3 / 4</span>
+							<img src="resources/images/obsidian_pc.png">
+						</div>
+						<div class="slide">
+							<span>4 / 4</span>
+							<img src="resources/images/obsidian_rmm.png">
+						</div>
+						<a class="prev" onclick="plusSlides(-1, 'obsidian')">&#10094;</a>
+  						<a class="next" onclick="plusSlides(1, 'obsidian')">&#10095;</a>
+					</div>
+					<p>Corsair: Obsidian 1000D</p>
+				</div>
+	  		</div>
+			<div id="Advanced" class="tabcontent">
+				<h3>Lorum ipsum</h3><p>etc... etc... etc...</p>
+			</div>
+			<div id="Finish" class="tabcontent">
+				<h3>Lorum ipsum</h3><p>etc... etc... etc... etc...</p>
+			</div> 
+		</div>
+
+
+		<div class="head-txt" id="displayerror">
+			<h1>Oops...</h1>
+			<p>
+				Unfortunately, your screen appears to be too small to accomodate for our service form. Please switch
+				to a desktop or laptop to order a computer.
+			</p>
+		</div>
+		<script type="text/javascript" src="resources/js/main.js"></script> <!-- Link external javascript -->
+		<script type="text/javascript" src="resources/js/form.js"></script>
+	</body>
+</html>
